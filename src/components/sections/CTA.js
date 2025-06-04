@@ -138,11 +138,22 @@ const CTA = () => {
                     </ul>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button size="lg" className="group">
+                      <Button
+                        size="lg"
+                        className="group"
+                        rightIcon={<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                        onClick={() => window.location.href = '/signup'}
+                      >
                         Start Free Trial
-                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </Button>
-                      <Button variant="secondary" size="lg">
+                      <Button
+                        variant="secondary"
+                        size="lg"
+                        onClick={() => {
+                          const event = new CustomEvent('openDemoModal');
+                          window.dispatchEvent(event);
+                        }}
+                      >
                         Schedule Demo
                       </Button>
                     </div>
@@ -216,13 +227,19 @@ const CTA = () => {
           {/* Urgency element */}
           <FadeIn className="mt-12">
             <div className="text-center glass rounded-xl p-6">
-              <div className="flex items-center justify-center space-x-2 text-orange-400 mb-2">
+              <div className="flex items-center justify-center space-x-2 text-orange-400 mb-4">
                 <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
                 <span className="font-medium">Limited Time Offer</span>
               </div>
-              <p className="text-gray-300">
+              <p className="text-gray-300 mb-6">
                 Get 2 months free when you sign up for an annual plan this month
               </p>
+              <Button
+                onClick={() => window.location.href = '/signup'}
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+              >
+                Claim Offer Now
+              </Button>
             </div>
           </FadeIn>
         </div>

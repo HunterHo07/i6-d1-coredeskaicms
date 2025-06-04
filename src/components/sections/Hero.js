@@ -154,12 +154,25 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button size="xl" className="group">
+            <Button
+              size="xl"
+              className="group"
+              rightIcon={<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+              onClick={() => window.location.href = '/signup'}
+            >
               Start Free Demo
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="secondary" size="xl" className="group">
-              <Play className="mr-2 w-5 h-5" />
+            <Button
+              variant="secondary"
+              size="xl"
+              className="group"
+              leftIcon={<Play className="w-5 h-5" />}
+              onClick={() => {
+                // We'll create a demo popup modal
+                const event = new CustomEvent('openDemoModal');
+                window.dispatchEvent(event);
+              }}
+            >
               Watch Demo
             </Button>
           </div>

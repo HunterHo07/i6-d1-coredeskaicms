@@ -7,6 +7,7 @@ import Testimonials from '@/components/sections/Testimonials';
 import Pricing from '@/components/sections/Pricing';
 import CTA from '@/components/sections/CTA';
 import MatrixRain from '@/components/effects/MatrixRain';
+import DemoModal from '@/components/ui/DemoModal';
 
 export default function Home() {
   return (
@@ -37,6 +38,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Demo Modal */}
+      <DemoModal />
     </main>
   );
 }

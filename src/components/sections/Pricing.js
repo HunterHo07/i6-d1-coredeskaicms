@@ -84,9 +84,16 @@ const Pricing = () => {
                     <span className="text-gray-400 ml-2">/{getPeriod()}</span>
                   </div>
 
-                  <Button 
-                    variant={plan.popular ? 'primary' : 'secondary'} 
+                  <Button
+                    variant={plan.popular ? 'primary' : 'secondary'}
                     className="w-full mb-6"
+                    onClick={() => {
+                      if (plan.name === 'Starter' || plan.name === 'Professional') {
+                        window.location.href = '/signup';
+                      } else {
+                        window.open('mailto:sales@coredeskai.com?subject=Enterprise Plan Inquiry&body=Hi, I would like to learn more about the Enterprise plan.', '_blank');
+                      }
+                    }}
                   >
                     {plan.cta}
                   </Button>
@@ -121,10 +128,20 @@ const Pricing = () => {
               including on-premise deployment, dedicated support, and tailored integrations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
+              <Button
+                size="lg"
+                onClick={() => window.open('mailto:sales@coredeskai.com?subject=Enterprise Inquiry&body=Hi, I would like to learn more about CoreDeskAi enterprise solutions.', '_blank')}
+              >
                 Contact Sales
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={() => {
+                  const event = new CustomEvent('openDemoModal');
+                  window.dispatchEvent(event);
+                }}
+              >
                 Schedule Demo
               </Button>
             </div>

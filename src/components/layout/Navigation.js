@@ -60,10 +60,7 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              Sign In
-            </Button>
-            <Button size="sm">
+            <Button size="sm" onClick={() => window.location.href = '/signup'}>
               Start Free Trial
             </Button>
           </div>
@@ -91,11 +88,15 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 space-y-3">
-                <Button variant="ghost" size="sm" className="w-full">
-                  Sign In
-                </Button>
-                <Button size="sm" className="w-full">
+              <div className="pt-4">
+                <Button
+                  size="sm"
+                  className="w-full"
+                  onClick={() => {
+                    window.location.href = '/signup';
+                    setIsOpen(false);
+                  }}
+                >
                   Start Free Trial
                 </Button>
               </div>

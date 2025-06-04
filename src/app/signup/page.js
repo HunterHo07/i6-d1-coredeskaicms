@@ -119,11 +119,18 @@ export default function SignupPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
+              <Button
+                size="lg"
+                rightIcon={<ArrowRight className="w-5 h-5" />}
+                onClick={() => window.location.href = '/demo'}
+              >
                 Go to Dashboard
-                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={() => window.open('https://docs.coredeskai.com', '_blank')}
+              >
                 View Documentation
               </Button>
             </div>
@@ -310,9 +317,12 @@ export default function SignupPage() {
                     
                     <div className="ml-auto">
                       {currentStep < 3 ? (
-                        <Button type="button" onClick={handleNext}>
+                        <Button
+                          type="button"
+                          onClick={handleNext}
+                          rightIcon={<ArrowRight className="w-4 h-4" />}
+                        >
                           Next Step
-                          <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       ) : (
                         <Button type="submit" loading={isSubmitting}>

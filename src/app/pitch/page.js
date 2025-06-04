@@ -6,6 +6,7 @@ import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import Container from '@/components/layout/Container';
 import Grid from '@/components/layout/Grid';
+import Button from '@/components/ui/Button';
 import FadeIn from '@/components/effects/FadeIn';
 import MatrixRain from '@/components/effects/MatrixRain';
 import { 
@@ -274,12 +275,25 @@ export default function PitchPage() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-purple-600 text-white font-semibold rounded-lg hover:scale-105 transition-transform">
+            <Button
+              size="lg"
+              onClick={() => window.open('mailto:investors@coredeskai.com?subject=Investor Meeting Request&body=Hi, I would like to schedule a meeting to discuss CoreDeskAi investment opportunity.', '_blank')}
+            >
               Schedule Investor Meeting
-            </button>
-            <button className="px-8 py-4 border-2 border-cyan-400 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-400 hover:text-black transition-all">
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => {
+                // Create and download a demo pitch deck PDF
+                const link = document.createElement('a');
+                link.href = 'data:text/plain;charset=utf-8,CoreDeskAi Pitch Deck - Contact us for full presentation at investors@coredeskai.com';
+                link.download = 'CoreDeskAi-Pitch-Deck.txt';
+                link.click();
+              }}
+            >
               Download Pitch Deck
-            </button>
+            </Button>
           </div>
         </div>
       )
@@ -341,14 +355,14 @@ export default function PitchPage() {
         <div className="py-8 border-t border-white/10">
           <Container>
             <div className="flex items-center justify-between">
-              <button
+              <Button
+                variant="ghost"
                 onClick={prevSlide}
                 disabled={currentSlide === 0}
-                className="flex items-center space-x-2 px-6 py-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                leftIcon={<ChevronLeft className="w-5 h-5" />}
               >
-                <ChevronLeft className="w-5 h-5" />
-                <span>Previous</span>
-              </button>
+                Previous
+              </Button>
 
               {/* Slide Indicators */}
               <div className="flex space-x-2">
@@ -365,14 +379,14 @@ export default function PitchPage() {
                 ))}
               </div>
 
-              <button
+              <Button
+                variant="ghost"
                 onClick={nextSlide}
                 disabled={currentSlide === slides.length - 1}
-                className="flex items-center space-x-2 px-6 py-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                rightIcon={<ChevronRight className="w-5 h-5" />}
               >
-                <span>Next</span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
+                Next
+              </Button>
             </div>
           </Container>
         </div>

@@ -2,16 +2,18 @@
 
 import { forwardRef } from 'react';
 
-const Button = forwardRef(({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  className = '', 
+const Button = forwardRef(({
+  children,
+  variant = 'primary',
+  size = 'md',
+  className = '',
   disabled = false,
   loading = false,
   onClick,
   type = 'button',
-  ...props 
+  leftIcon,
+  rightIcon,
+  ...props
 }, ref) => {
   const baseClasses = `
     inline-flex items-center justify-center font-medium rounded-lg
@@ -92,10 +94,12 @@ const Button = forwardRef(({
           <div className="spinner w-5 h-5 border-2"></div>
         </div>
       )}
-      <span className={loading ? 'opacity-0' : 'opacity-100'}>
-        {children}
+      <span className={`flex items-center justify-center gap-2 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+        {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}
+        <span className="flex-shrink-0">{children}</span>
+        {rightIcon && <span className="flex-shrink-0">{rightIcon}</span>}
       </span>
-      
+
       {/* Ripple effect overlay */}
       <div className="absolute inset-0 opacity-0 hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
     </button>
