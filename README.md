@@ -1,5 +1,7 @@
 # CoreDeskAiCMS - Universal Admin Dashboard
 
+Live Demo: https://i6-d1-coredeskaicms.vercel.app
+
 ## 🚀 The Future of Admin Panels
 
 CoreDeskAi is a revolutionary plug-and-play CMS/back-office system that connects to any REST API via simple URL and token input. Transform any API endpoint into a powerful, customizable admin dashboard in minutes - no coding required.
